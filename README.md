@@ -116,8 +116,8 @@ sequenceDiagram
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/game-reward-contract.git
-cd game-reward-contract
+git clone https://github.com/RakkiZk/GameReward-Contract.git
+cd GameReward-Contract
 
 # Install dependencies
 npm install
@@ -134,11 +134,11 @@ npm install --save-dev chai
 game-reward-contract/
 ├── contracts/
 │   ├── GameReward.sol
-│   └── mocks/
-│       └── MockToken.sol
+│   └──── MockToken.sol
 ├── test/
 │   └── GameReward.test.js
-├── scripts/
+├── ignition/
+|   modules/
 │   └── deploy.js
 ├── hardhat.config.js
 ├── package.json
@@ -154,14 +154,14 @@ game-reward-contract/
 npx hardhat node
 
 # Deploy to local network
-npx hardhat run scripts/deploy.js --network localhost
+npx hardhat run ignition/modules/deploy.js --network localhost
 ```
 
 ### Testnet Deployment
 
 ```bash
 # Deploy to Sepolia testnet
-npx hardhat run scripts/deploy.js --network sepolia
+npx hardhat run ignition/modules/deploy.js --network sepolia
 
 # Verify contract
 npx hardhat verify --network sepolia DEPLOYED_CONTRACT_ADDRESS "TOKEN_ADDRESS" "EXCHANGE_RATE"
@@ -169,7 +169,7 @@ npx hardhat verify --network sepolia DEPLOYED_CONTRACT_ADDRESS "TOKEN_ADDRESS" "
 
 ### Deployment Script
 
-Create `scripts/deploy.js`:
+Create `ignition/modules/deploy.js`:
 
 ```javascript
 async function main() {
@@ -430,9 +430,9 @@ REPORT_GAS=true npx hardhat test
       ✓ Should prevent non-admins from awarding points
       ✓ Should emit PointsAwarded event
       ✓ Should prevent awarding points to zero address
-    ... (130+ total tests)
+    ... (60+ total tests)
 
-  130 passing (2.5s)
+  63 passing (2.5s)
 ```
 
 ## 🔒 Security Features
